@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import {Grid} from '@mui/material';
+import { Routes, Route,} from "react-router-dom";
+
+import { ProtectedRoutes } from "./ProtectedRoutes";
+
+
+
+import HomePage from './components/homePage/HomePage';
+import Authentication from './components/authentication/Authentication';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container direction="column" width="100%" height="100vh" justifyContent="center" alignItems="center">
+      
+      <Grid item>
+        <Routes>
+          <Route element={<ProtectedRoutes/>}>
+            <Route path="/home" element={<HomePage />} />
+          </Route>
+          {/* <Route path="/" element={<HomePage />} /> */}
+          <Route path="/auth" element={<Authentication />} />
+        </Routes>
+      </Grid>
+    </Grid>
   );
 }
 
