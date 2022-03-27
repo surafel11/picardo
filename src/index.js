@@ -13,10 +13,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 const theme = createTheme({
     palette: {
         primary: {
-            main: "#82B242" 
+            main: "#10141c" 
         },
         secondary: {
-            main: "#2A2353"
+            main: "#ffd70d"
         }
     },
     typography: {

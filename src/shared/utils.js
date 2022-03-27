@@ -1,6 +1,7 @@
-import { app } from './firebase-config';
+import app from './firebase-config';
 import { toast } from 'react-toastify';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+// import * as firebase from 'firebase';
 // import { useNavigate } from "react-router-dom";
 
 class Utils{
@@ -45,6 +46,14 @@ class Utils{
                 toast.error('Other Error');
             }
         });
+    }
+
+    async signInWithGoogle(){
+        const auth = getAuth();
+        const provider = new app.auth.GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
+
+        auth.signInWithPopup(provider);
     }
 
     async getStoredToken(){
